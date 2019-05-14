@@ -39,7 +39,7 @@ class Home extends React.Component {
         </div>
         <div className="login-modal">
           <Modal dimmer={dimmer} open={open} onClose={this.close}>
-            <Modal.Header className="modal-header">LOGIN IN PLEASE OMG THIS IS SO HARD</Modal.Header>
+            <Modal.Header className="modal-header">Landscape</Modal.Header>
             <Modal.Content className='modal-content'>
               <Modal.Description>
                 <Input onChange={this.usernameHandleChange} value={this.state.username} className="username-login-input" focus placeholder='Username..' />

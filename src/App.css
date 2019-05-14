@@ -72,6 +72,14 @@
   height: 100vh;
   width: 100vw;
   position: relative;
+  display: flex;
+}
+
+.sign-up-form {
+  padding-left: 9%;
+  padding-top: 5%;
+  width: 45%;
+  height: 150%;
 }
 
 /* .starting-menu p:hover {

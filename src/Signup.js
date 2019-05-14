@@ -2,19 +2,35 @@ import React from 'react';
 import './App.css';
 import { Button, Checkbox, Form, Input, Radio, Select, TextArea } from 'semantic-ui-react'
 
+const options = [
+  { text: 'New York, NY', value: 'New York, NY' },
+  { text: 'Boston, MA', value: 'Boston, MA' },
+  { text: 'San Diego, CA', value: 'San Diego, CA' },
+]
+
 class Signup extends React.Component {
 
   state = {
     name: "",
+    username: "",
+    password: "",
     location: "",
     instagram_handle: "",
     follower_count: "",
     email: "",
+    skill: []
   }
 
   handleChange = (e) => {
     this.setState ({
       [e.target.name]: e.target.value
+    })
+  }
+
+  locationChange = (e,v) => {
+    console.log(v.value)
+    this.setState ({
+      location: v.value
     })
   }
 
@@ -24,33 +40,32 @@ class Signup extends React.Component {
     console.log(this.state)
     return (
       <div className="sign-up-page">
-      <Form>
-        <Form.Group widths='equal'>
+      <Form className="sign-up-form">
+        <Form.Group widths='equal' className="first-three-input">
           <Form.Field onChange={this.handleChange} control={Input} label='Full name' name="name" placeholder='Full Name' />
-          <Form.Field control={Input} label='Last name' placeholder='Last name' />
+          <Form.Field onChange={this.handleChange} control={Input} label='Username' name="username" placeholder="Username" />
+          <Form.Field onChange={this.handleChange} control={Input} label='Password' name="password" placeholder='Password' />
+        </Form.Group>
+        <Form.Group widths='equal' className="second-three-input">
+          <Form.Field onChange={this.handleChange} control={Input} label='Email' name="email" placeholder='example@example.com' />
+          <Form.Field onChange={this.handleChange} control={Input} label='Instagram' name="instagram_handle" placeholder="@Instagram Handle" />
+          <Form.Select onChange={this.locationChange} fluid label='Location' name="location" options={options} placeholder='Location' />
         </Form.Group>
         <Form.Group inline>
-          <label>Quantity</label>
+          <label>Skillset</label>
           <Form.Field
             control={Radio}
-            label='One'
-            value='1'
-            checked={value === '1'}
-            onChange={this.handleChange}
+            label='Photographer'
+            value='photographer'
+            checked={value === 'photographer'}
+            onClick={this.handleChange}
           />
           <Form.Field
             control={Radio}
-            label='Two'
-            value='2'
-            checked={value === '2'}
-            onChange={this.handleChange}
-          />
-          <Form.Field
-            control={Radio}
-            label='Three'
-            value='3'
-            checked={value === '3'}
-            onChange={this.handleChange}
+            label='Model'
+            value='model'
+            checked={value === 'model'}
+            onClick={this.handleChange}
           />
         </Form.Group>
         <Form.Field control={TextArea} label='About' placeholder='Tell us more about you...' />
