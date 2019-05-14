@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Home from './Home'
 import User from './User'
+import Signup from './Signup'
 
 class App extends React.Component {
 
@@ -20,10 +21,8 @@ class App extends React.Component {
     switch (this.state.currentPage) {
       case "home":
         return <Home handleChangePage={this.handleChangePage}/>
-      case "signInPage":
-        return "signin"
       case "signUpPage":
-        return "signup"
+        return <Signup />
       case "aboutPage":
         return "about"
       default:

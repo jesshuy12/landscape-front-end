@@ -1,20 +1,28 @@
 import React from 'react';
 import './App.css';
-import { Button, Header, Image, Modal } from 'semantic-ui-react'
+import { Button, Image, Header, Modal, Input } from 'semantic-ui-react'
 
 class Home extends React.Component {
 
   state = {
-    open: false
+    open: false,
+    username: "",
+    password: "",
   }
 
   show = dimmer => () => this.setState({ dimmer, open: true })
   close = () => this.setState({ open: false })
 
-  modalHandleChange = () => {
-    this.setState((prevState) => ({
-      loginModal: !prevState.show
-    }))
+  usernameHandleChange = (e) => {
+    this.setState ({
+      username: e.target.value
+    })
+  }
+
+  passwordHandleChange = (e) => {
+    this.setState ({
+      password: e.target.value
+    })
   }
 
   render() {
@@ -30,29 +38,31 @@ class Home extends React.Component {
           <p>Made with ❤️ by Jessy</p>
         </div>
         <div className="login-modal">
-      <Modal dimmer={dimmer} open={open} onClose={this.close}>
-        <Modal.Header>Select a Photo</Modal.Header>
-        <Modal.Content image>
-          <Image wrapped size='medium' src='https://react.semantic-ui.com/images/avatar/large/rachel.png' />
-          <Modal.Description>
-            <Header>Default Profile Image</Header>
-            <p>We've found the following gravatar image associated with your e-mail address.</p>
-            <p>Is it okay to use this photo?</p>
-          </Modal.Description>
-        </Modal.Content>
-        <Modal.Actions>
-          <Button color='black' onClick={this.close}>
-            Nope
-          </Button>
-          <Button
-            positive
-            icon='checkmark'
-            labelPosition='right'
-            content="Yep, that's me"
-            onClick={this.close}
-          />
-        </Modal.Actions>
-      </Modal>
+          <Modal dimmer={dimmer} open={open} onClose={this.close}>
+            <Modal.Header className="modal-header">LOGIN IN PLEASE OMG THIS IS SO HARD</Modal.Header>
+            <Modal.Content className='modal-content'>
+              <Modal.Description>
+                <Input onChange={this.usernameHandleChange} value={this.state.username} className="username-login-input" focus placeholder='Username..' />
+                <Header className="password-login-text"></Header>
+                <Input onChange={this.passwordHandleChange} value={this.state.password} className="password-login-input" focus placeholder='Password..' />
+                <br/>
+                <br/>
+                <p className="modal-extra-text">Not registered? Sign-Up now!</p>
+              </Modal.Description>
+            </Modal.Content>
+            <Modal.Actions>
+              <Button color='black' onClick={this.close}>
+                Back
+              </Button>
+              <Button
+                positive
+                icon='checkmark'
+                labelPosition='right'
+                content="Sign In"
+                onClick={this.close}
+              />
+            </Modal.Actions>
+          </Modal>
         </div>
       </div>
     )

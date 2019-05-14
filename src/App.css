@@ -47,6 +47,33 @@
   text-align: center
 }
 
+.modal-header {
+  text-align: center;
+}
+
+.modal-extra-text {
+  text-align: center;
+}
+
+.username-login-input {
+  align-items: center;
+  margin-left: 40%
+}
+
+.password-login-input {
+  align-items: center;
+  margin-left: 40%
+}
+
+.sign-up-page {
+  background-image: url('/signup.jpeg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+
 /* .starting-menu p:hover {
   background-color: #FFFAF0;
   color: black;
