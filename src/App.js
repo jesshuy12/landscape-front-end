@@ -3,39 +3,57 @@ import './App.css';
 import Home from './Home'
 import User from './User'
 import Signup from './Signup'
+import { Route, Switch } from 'react-router-dom'
+import NoPath from './NoPath'
+import About from './About'
 
 class App extends React.Component {
 
   state = {
-    currentPage: "home",
-    loginModal: false
+    currentUser: null
   }
 
-  handleChangePage = (page) => {
+  setCurrentUser = (user) => {
     this.setState({
-      currentPage: page
+      currentUser: user
     })
   }
 
-  renderPage = () => {
-    switch (this.state.currentPage) {
-      case "home":
-        return <Home handleChangePage={this.handleChangePage}/>
-      case "signUpPage":
-        return <Signup handleChangePage={this.handleChangePage}/>
-      case "aboutPage":
-        return "about"
-      case "userPage":
-        return "user"
-      default:
-        return null
-    }
+  createUser = (user) => {
+    fetch(`http://localhost:3000/users`, {
+      method: 'POST',
+      body: JSON.stringify(user),
+      headers:{
+        'Content-Type': 'application/json'
+      }
+    })
+  }
+
+  login = (user) => {
+    fetch(`http://localhost:3000/login`, {
+      method: 'POST',
+      body: JSON.stringify(user),
+      headers:{
+        'Content-Type': 'application/json',
+        'Accepts': "application/json"
+      }
+    })
+    .then(res => res.json())
+    .then(response => {
+      this.setCurrentUser(response)
+    })
   }
 
   render() {
+    console.log(this.state)
     return (
       <div className="App">
-        {this.renderPage()}
+      <Switch>
+        <Route path='/about' render={() => <About /> } />
+        <Route path='/signup' render={() => <Signup createUser={this.createUser}/> } />
+        <Route exact path='/' render={() => <Home setCurrentUser={this.setCurrentUser} login={this.login}/> }/>
+        <Route component={ NoPath } />
+      </Switch>
       </div>
     )
   }

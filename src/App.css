@@ -40,7 +40,7 @@
   flex-direction: column;
 }
 
-.starting-menu p {
+.starting-menu a {
   margin: 15px;
   width: 100%;
   height: 50%;
@@ -85,6 +85,19 @@
 .location-form {
   width: 50%;
 }
+
+.no-path {
+  background-image: url('/noroute.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+}
+
+a {
+  color: black;
+}
+
 
 
 /* .starting-menu p:hover {

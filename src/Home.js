@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
-import { Button, Image, Header, Modal, Input } from 'semantic-ui-react'
+import { Button, Image, Header, Modal, Input, Form } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 
 class Home extends React.Component {
 
@@ -25,19 +26,31 @@ class Home extends React.Component {
     })
   }
 
+  handleSubmit = (e) => {
+    e.preventDefault()
+    this.close()
+    const user = {username: this.state.username, password: this.state.password}
+    this.props.login(user)
+    this.setState({
+      username: "",
+      password: "",
+    })
+  }
+
   render() {
     const { open, dimmer } = this.state
     return (
       <div className="home-page">
         <div className="nav">
           <ul className="starting-menu">
-            <p onClick={this.show('blurring')}>Sign In</p>
-            <p onClick={() => this.props.handleChangePage("signUpPage")}>Sign Up</p>
-            <p onClick={() => this.props.handleChangePage("aboutPage")}>About</p>
+            <a onClick={this.show('blurring')}>Sign In</a>
+            <a><Link to='/signup'>Sign Up</Link></a>
+            <a><Link to='/about'>About</Link></a>
           </ul>
           <p>Made with ❤️ by Jessy</p>
         </div>
         <div className="login-modal">
+        <Form>
           <Modal dimmer={dimmer} open={open} onClose={this.close}>
             <Modal.Header className="modal-header">Landscape</Modal.Header>
             <Modal.Content className='modal-content'>
@@ -47,7 +60,7 @@ class Home extends React.Component {
                 <Input onChange={this.passwordHandleChange} value={this.state.password} className="password-login-input" focus placeholder='Password..' />
                 <br/>
                 <br/>
-                <p className="modal-extra-text">Not registered? {<a onClick={() => this.props.handleChangePage("signUpPage")}href="">Sign-Up</a>} now!</p>
+                <p className="modal-extra-text">Not registered? {<a><Link to='/signup'>Sign-Up</Link></a>} now!</p>
               </Modal.Description>
             </Modal.Content>
             <Modal.Actions>
@@ -59,10 +72,11 @@ class Home extends React.Component {
                 icon='checkmark'
                 labelPosition='right'
                 content="Sign In"
-                onClick={this.close}
+                onClick={this.handleSubmit}
               />
             </Modal.Actions>
           </Modal>
+          </Form>
         </div>
       </div>
     )
