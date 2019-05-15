@@ -28,16 +28,19 @@ class Signup extends React.Component {
   }
 
   locationChange = (e,v) => {
-    console.log(v.value)
     this.setState ({
       location: v.value
     })
   }
 
-  render() {
+  skillHandleChange = (e,v) => {
+    this.setState ({
+      skill: [...this.state.skill, v.value]
+    })
+  }
 
+  render() {
     const { value } = this.state
-    console.log(this.state)
     return (
       <div className="sign-up-page">
       <Form className="sign-up-form">
@@ -49,27 +52,25 @@ class Signup extends React.Component {
         <Form.Group widths='equal' className="second-three-input">
           <Form.Field onChange={this.handleChange} control={Input} label='Email' name="email" placeholder='example@example.com' />
           <Form.Field onChange={this.handleChange} control={Input} label='Instagram' name="instagram_handle" placeholder="@Instagram Handle" />
-          <Form.Select onChange={this.locationChange} fluid label='Location' name="location" options={options} placeholder='Location' />
+          <Form.Select className="location-form" onChange={this.locationChange} fluid label='Location' name="location" options={options} placeholder='Location'/>
         </Form.Group>
         <Form.Group inline>
           <label>Skillset</label>
           <Form.Field
-            control={Radio}
+            control={Checkbox}
             label='Photographer'
             value='photographer'
-            checked={value === 'photographer'}
-            onClick={this.handleChange}
+            onClick={this.skillHandleChange}
           />
           <Form.Field
-            control={Radio}
+            control={Checkbox}
             label='Model'
             value='model'
-            checked={value === 'model'}
-            onClick={this.handleChange}
+            onClick={this.skillHandleChange}
           />
         </Form.Group>
         <Form.Field control={TextArea} label='About' placeholder='Tell us more about you...' />
-        <Form.Field control={Checkbox} label='I agree to the Terms and Conditions' />
+        <Form.Field control={Checkbox} label='I agree to the Terms and Conditions made by Jessy' />
         <Form.Field control={Button}>Submit</Form.Field>
       </Form>
       </div>

@@ -22,9 +22,11 @@ class App extends React.Component {
       case "home":
         return <Home handleChangePage={this.handleChangePage}/>
       case "signUpPage":
-        return <Signup />
+        return <Signup handleChangePage={this.handleChangePage}/>
       case "aboutPage":
         return "about"
+      case "userPage":
+        return "user"
       default:
         return null
     }

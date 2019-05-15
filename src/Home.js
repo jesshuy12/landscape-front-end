@@ -47,7 +47,7 @@ class Home extends React.Component {
                 <Input onChange={this.passwordHandleChange} value={this.state.password} className="password-login-input" focus placeholder='Password..' />
                 <br/>
                 <br/>
-                <p className="modal-extra-text">Not registered? Sign-Up now!</p>
+                <p className="modal-extra-text">Not registered? {<a onClick={() => this.props.handleChangePage("signUpPage")}href="">Sign-Up</a>} now!</p>
               </Modal.Description>
             </Modal.Content>
             <Modal.Actions>

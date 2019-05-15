@@ -82,6 +82,11 @@
   height: 150%;
 }
 
+.location-form {
+  width: 50%;
+}
+
+
 /* .starting-menu p:hover {
   background-color: #FFFAF0;
   color: black;
