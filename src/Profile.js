@@ -29,7 +29,7 @@ class Profile extends React.Component {
                 </a>
               </Card.Content>
             </Card>
-            <Portfolio />
+            <Portfolio currentUser={this.props.currentUser}/>
           </Grid.Column>
           <Grid.Column width={6}>
             <Image src='https://react.semantic-ui.com/images/wireframe/image.png'  />
