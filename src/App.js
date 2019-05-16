@@ -6,6 +6,8 @@ import Signup from './Signup'
 import { Route, Switch, withRouter } from 'react-router-dom'
 import NoPath from './NoPath'
 import About from './About'
+import Community from './Community'
+import Technology from './Technology'
 
 class App extends React.Component {
 
@@ -13,10 +15,28 @@ class App extends React.Component {
     currentUser: null
   }
 
+  componentDidMount() {
+    const userID = localStorage.getItem("user_id")
+    if (userID) {
+      fetch("http://localhost:3000/auto_login", {
+        headers: {
+          "Authorization": userID
+        }
+      })
+      .then(res => res.json())
+      .then((response) => {
+        this.setState({
+          currentUser: response
+        })
+      })
+    }
+  }
+
   setCurrentUser = (user) => {
     this.setState({
       currentUser: user
     }, () => {
+      localStorage.setItem("user_id", this.state.currentUser.id)
       this.props.history.push(`/users/${this.state.currentUser.id}`)
     })
   }
@@ -28,6 +48,10 @@ class App extends React.Component {
       headers:{
         'Content-Type': 'application/json'
       }
+    })
+    .then(res => res.json())
+    .then(response => {
+      this.setCurrentUser(response)
     })
   }
 
@@ -50,11 +74,20 @@ class App extends React.Component {
     })
   }
 
+  signOut = () => {
+    localStorage.clear();
+    this.setState({
+      currentUser: null
+    })
+  }
+
   render() {
     return (
       <div className="App">
       <Switch>
-        <Route path='/users/:id' render={() => <Profile currentUser={this.state.currentUser}/> } />
+        <Route path='/technology' render={() => <Technology /> } />
+        <Route path='/community' render={() => <Community /> } />
+        <Route path='/users/:id' render={() => <Profile currentUser={this.state.currentUser} signOut={this.signOut} /> } />
         <Route path='/about' render={() => <About /> } />
         <Route path='/signup' render={() => <Signup createUser={this.createUser}/> } />
         <Route exact path='/' render={(routeProps) => { return <Home {...routeProps} setCurrentUser={this.setCurrentUser} login={this.login}/> }}/>

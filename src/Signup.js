@@ -76,13 +76,13 @@ class Signup extends React.Component {
           <Form.Field
             control={Checkbox}
             label='Photographer'
-            value='photographer}'
+            value='Photographer'
             onClick={this.skillHandleChange}
           />
           <Form.Field
             control={Checkbox}
             label='Model'
-            value='model'
+            value='Model'
             onClick={this.skillHandleChange}
           />
         </Form.Group>
