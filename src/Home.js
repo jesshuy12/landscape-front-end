@@ -45,6 +45,8 @@ class Home extends React.Component {
           <ul className="starting-menu">
             <a onClick={this.show('blurring')}>Sign In</a>
             <a><Link to='/signup'>Sign Up</Link></a>
+            <a><Link to='/'>Community</Link></a>
+            <a><Link to='/'>Technology</Link></a>
             <a><Link to='/about'>About</Link></a>
           </ul>
           <p>Made with ❤️ by Jessy</p>

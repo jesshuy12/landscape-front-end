@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
 import Home from './Home'
-import User from './User'
+import Profile from './Profile'
 import Signup from './Signup'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, withRouter } from 'react-router-dom'
 import NoPath from './NoPath'
 import About from './About'
 
@@ -16,6 +16,8 @@ class App extends React.Component {
   setCurrentUser = (user) => {
     this.setState({
       currentUser: user
+    }, () => {
+      this.props.history.push(`/users/${this.state.currentUser.id}`)
     })
   }
 
@@ -40,18 +42,22 @@ class App extends React.Component {
     })
     .then(res => res.json())
     .then(response => {
+      if (response.errors) {
+        alert(response.errors)
+      } else {
       this.setCurrentUser(response)
+      }
     })
   }
 
   render() {
-    console.log(this.state)
     return (
       <div className="App">
       <Switch>
+        <Route path='/users/:id' render={() => <Profile currentUser={this.state.currentUser}/> } />
         <Route path='/about' render={() => <About /> } />
         <Route path='/signup' render={() => <Signup createUser={this.createUser}/> } />
-        <Route exact path='/' render={() => <Home setCurrentUser={this.setCurrentUser} login={this.login}/> }/>
+        <Route exact path='/' render={(routeProps) => { return <Home {...routeProps} setCurrentUser={this.setCurrentUser} login={this.login}/> }}/>
         <Route component={ NoPath } />
       </Switch>
       </div>
@@ -60,4 +66,4 @@ class App extends React.Component {
 
 }
 
-export default App;
+export default withRouter(App);

@@ -31,6 +31,20 @@
   align-items: center;
 }
 
+.nav-general {
+  position: absolute;
+  background: #eee;
+  opacity: 0.95;
+  padding: 15px;
+  margin-right: 10px;
+  width: 89%;
+  height: 161.5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .starting-menu {
   list-style: none;
   align-items: center;
@@ -96,6 +110,14 @@
 
 a {
   color: black;
+}
+
+.profile-card {
+  height: 38.4vh;
+}
+
+.profile-pic {
+  height: 250px;
 }
 
 
