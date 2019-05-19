@@ -10,7 +10,7 @@ class Nav extends React.Component {
            <div className="nav-general">
               <ul className="starting-menu">
                 <a><Icon name='user' /> Profile</a>
-                <Link to='/'><Icon name='search' /> Search</Link>
+                <Link to='/community'><Icon name='search' /> Search</Link>
                 <Link to='/'><Icon name='save' /> Saved</Link>
                 <Link to='/'><Icon name='facebook messenger' /> Messages</Link>
                 <Link to='/' onClick={() => this.props.signOut()}><Icon name='sign out' /> Sign Out</Link>

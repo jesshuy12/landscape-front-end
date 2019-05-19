@@ -12,8 +12,11 @@ import Technology from './Technology'
 class App extends React.Component {
 
   state = {
-    currentUser: null
+    currentUser: null,
+    community: [],
   }
+
+////////////////////////////////////////////////////////////////////////////////
 
   componentDidMount() {
     const userID = localStorage.getItem("user_id")
@@ -30,7 +33,10 @@ class App extends React.Component {
         })
       })
     }
+    this.getAllUsers()
   }
+
+////////////////////////////////////////////////////////////////////////////////
 
   setCurrentUser = (user) => {
     this.setState({
@@ -54,6 +60,8 @@ class App extends React.Component {
       this.setCurrentUser(response)
     })
   }
+
+//LOGIN & SIGNOUT //////////////////////////////////////////////////////////////
 
   login = (user) => {
     fetch(`http://localhost:3000/login`, {
@@ -81,12 +89,26 @@ class App extends React.Component {
     })
   }
 
+////////////////////////////////////////////////////////////////////////////////
+
+  getAllUsers = () => {
+    fetch('http://localhost:3000/users')
+    .then(res => res.json())
+    .then(response => {
+      this.setState({
+        community: response
+      })
+    })
+  }
+
+////////////////////////////////////////////////////////////////////////////////
+
   render() {
     return (
       <div className="App">
       <Switch>
         <Route path='/technology' render={() => <Technology /> } />
-        <Route path='/community' render={() => <Community /> } />
+        <Route path='/community' render={() => <Community community={this.state.community} signOut={this.signOut}/> } />
         <Route path='/users/:id' render={() => <Profile currentUser={this.state.currentUser} signOut={this.signOut} /> } />
         <Route path='/about' render={() => <About /> } />
         <Route path='/signup' render={() => <Signup createUser={this.createUser}/> } />
