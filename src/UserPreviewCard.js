@@ -5,28 +5,25 @@ import { Button, Card, Image } from 'semantic-ui-react'
 class UserPreviewCard extends React.Component {
 
   render() {
-    console.log(this.props.user)
     return (
-      <div>
+      <div className="preview-card-container">
         <Card className="user-preview-card">
-          <Card.Content>
-            <Image floated='right' size='mini' src='https://react.semantic-ui.com/images/avatar/large/steve.jpg' />
-            <Card.Header>{this.props.user.name}</Card.Header>
-            <Card.Meta>{this.props.user.name.skills} hello</Card.Meta>
-            <Card.Description>
-              Steve wants to add you to the group <strong>best friends</strong>
-            </Card.Description>
-          </Card.Content>
-          <Card.Content extra>
-            <div className='ui two buttons'>
-              <Button basic color='green'>
-                Approve
-              </Button>
-              <Button basic color='red'>
-                Decline
-              </Button>
-            </div>
-          </Card.Content>
+
+        <div className="pc-photo-container">
+          <div className="left-half" background={this.props.user.images[0]}>
+          </div>
+          <div className="right-half">
+          </div>
+        </div>
+
+        <div className="pc-user-info">
+          <Image className="preview-card-profile-pic" floated='left' size='mini' src='https://react.semantic-ui.com/images/avatar/large/steve.jpg' />
+          <Card.Header>{this.props.user.name}</Card.Header>
+          <Card.Meta>Photographer</Card.Meta>
+          <Button circular color='facebook' icon='user' />
+          <Button circular color='twitter' icon='instagram' />
+        </div>
+
         </Card>
       </div>
     )
