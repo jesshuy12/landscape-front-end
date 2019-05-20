@@ -1,51 +1,65 @@
 import React from 'react';
 import './App.css';
+import Gallery from 'react-photo-gallery';
+
+const photos = [
+ {
+   src: "https://source.unsplash.com/2ShvY8Lf6l0/800x599",
+   width: 4,
+   height: 3
+ },
+ {
+   src: "https://source.unsplash.com/Dm-qxdynoEc/800x799",
+   width: 1,
+   height: 1
+ },
+ {
+   src: "https://source.unsplash.com/qDkso9nvCg0/600x799",
+   width: 3,
+   height: 4
+ },
+ {
+   src: "https://source.unsplash.com/iecJiKe_RNg/600x799",
+   width: 3,
+   height: 4
+ },
+ {
+   src: "https://source.unsplash.com/epcsn8Ed8kY/600x799",
+   width: 3,
+   height: 4
+ },
+ {
+   src: "https://source.unsplash.com/NQSWvyVRIJk/800x599",
+   width: 4,
+   height: 3
+ },
+ {
+   src: "https://source.unsplash.com/zh7GEuORbUw/600x799",
+   width: 3,
+   height: 4
+ },
+ {
+   src: "https://source.unsplash.com/PpOHJezOalU/800x599",
+   width: 4,
+   height: 3
+ },
+ {
+   src: "https://source.unsplash.com/I1ASdgphUH4/800x599",
+   width: 4,
+   height: 3
+ }
+]
 
 class Portfolio extends React.Component {
 
-  state = {
-    image: ""
-  }
-
-  postImageURL = () => {
-    if (this.state.uploaded === true) {
-      const image = {imageURL: this.state.image, user_id: this.props.currentUser.id}
-      fetch(`http://localhost:3000/images`, {
-        method: 'POST',
-        body: JSON.stringify(image),
-        headers:{
-          'Content-Type': 'application/json'
-        }
-      })
-    }
-  }
-
-  openWidget = () => {
-    window.cloudinary.createUploadWidget(
-      {
-        cloudName: "jesshuy12",
-        uploadPreset: "i1up9hwj",
-      },
-      (error, result) => {
-        if (result && result.event === "success") {
-          this.setState ({
-            image: `https://res.cloudinary.com/${"jesshuy12"}/image/upload/${result.info.path}`, uploaded: true
-          }, () => {
-            this.postImageURL()
-          })
-        }
-      }
-    ).open()
-  }
-
   render() {
-    console.log(this.state.image)
     return (
-      <div className="portfolio">
-        <button onClick={this.openWidget} id="upload_widget" className="cloudinary-button">Upload files</button>
+      <div>
+      <Gallery photos={photos} />
       </div>
     )
   }
+
 
 }
 

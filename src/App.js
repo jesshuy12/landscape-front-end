@@ -58,6 +58,9 @@ class App extends React.Component {
     .then(res => res.json())
     .then(response => {
       this.setCurrentUser(response)
+      this.setState ({
+        community: [...this.state.community, response]
+      })
     })
   }
 

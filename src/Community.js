@@ -34,7 +34,7 @@ class Community extends React.Component {
         <div className="cp-left-main-container">
           <div className="cp-search-container">
             <Input onChange={this.handleSearch} icon='search' placeholder='Search Artist...' />
-            <h1 className="community-count"> DISPLAYING {this.props.community.length} ARTISTS</h1>
+            <h1 className="community-count"></h1>
           </div>
           <div className="cp-body-container">
           {this.renderEachUser()}

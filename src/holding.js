@@ -12,3 +12,15 @@
     <Button basic color='red'>Contact</Button>
   </div>
 </Card.Content>
+
+
+
+{this.props.currentUser ?
+<div>
+<p>signed in</p>
+</div>
+:
+<div>
+<p>loading..</p>
+</div>
+}
