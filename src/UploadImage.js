@@ -39,10 +39,9 @@ class UploadImage extends React.Component {
   }
 
   render() {
-    console.log(this.state.image)
     return (
       <div className="portfolio">
-        <button onClick={this.openWidget} id="upload_widget" className="cloudinary-button">Upload files</button>
+        <button onClick={this.openWidget} id="upload_widget" className="ui button">Upload Images</button>
       </div>
     )
   }

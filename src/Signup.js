@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Button, Checkbox, Form, Input, Radio, Select, TextArea } from 'semantic-ui-react'
+import { Button, Checkbox, Form, Input, Select, TextArea } from 'semantic-ui-react'
 
 const options = [
   { text: 'New York, NY', value: 'New York, NY' },

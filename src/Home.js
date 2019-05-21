@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { Button, Image, Header, Modal, Input, Form } from 'semantic-ui-react'
+import { Button, Header, Modal, Input, Form } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
 class Home extends React.Component {
@@ -41,6 +41,7 @@ class Home extends React.Component {
     const { open, dimmer } = this.state
     return (
       <div className="home-page">
+        <h1 className="title">LANDSCAPE</h1>
         <div className="nav">
           <ul className="starting-menu">
             <a onClick={this.show('blurring')}>Sign In</a>

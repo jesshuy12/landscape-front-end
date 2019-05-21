@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Gallery from 'react-photo-gallery';
+import Lightbox from "react-image-lightbox";
 
 const photos = [
  {
@@ -10,8 +11,8 @@ const photos = [
  },
  {
    src: "https://source.unsplash.com/Dm-qxdynoEc/800x799",
-   width: 1,
-   height: 1
+   width: 4,
+   height: 3
  },
  {
    src: "https://source.unsplash.com/qDkso9nvCg0/600x799",

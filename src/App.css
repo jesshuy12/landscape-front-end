@@ -42,7 +42,7 @@ html, body {
   opacity: 0.95;
   padding: 15px;
   margin-top: 1.7vh;
-  margin-left: .9vw;
+  margin-left: .6vw;
   width: 20vh;
   height: 96.5vh;
   display: flex;
@@ -141,8 +141,6 @@ a {
 }
 
 .cp-left-main-container {
-  border-style: solid;
-  border-color: red;
   width: 180vw;
   height: 100%;
   display: flex;
@@ -160,9 +158,6 @@ a {
 
 .cp-search-container {
   height: 6vh;
-  /* margin-top: .5%;
-  margin-bottom: .5%;
-  margin-left: .4%; */
   padding: .5%;
   display: flex;
   flex-direction: row;
@@ -172,11 +167,10 @@ a {
   z-index: 1;
   background-color: white;
   opacity: 0.95;
+  border-bottom:solid #ECE8E5 4px;
 }
 
 .cp-body-container {
-  border-style: solid;
-  border-color: green;
   height: 100%;
   display: flex;
   flex-direction: row;
@@ -252,8 +246,6 @@ a {
 }
 
 .up-left-main-container {
-  border-style: solid;
-  border-color: red;
   width: 180vw;
   height: 100%;
   display: flex;
@@ -261,8 +253,6 @@ a {
 }
 
 .up-right-main-container {
-  border-style: solid;
-  border-color: green;
   width: 25vw;
   height: 100vh;
   flex: initial;
@@ -272,16 +262,115 @@ a {
 }
 
 .up-user-info-container {
-  height: 30vh;
+  height: 40vh;
   border-style: solid;
-  border-color: green;
+  border-color: #ECE8E5;
+  margin: 1%;
+  display: flex;
+  flex-direction: row;
 }
 
 .up-user-portfolio-container {
-  height: 100%;
   border-style: solid;
-  border-color: blue;
+  border-color: #ECE8E5;
+  margin: 1%;
+  height: 100%;
   padding: 1%;
+}
+
+.up-user-info-left {
+  height: 39.5vh;
+  width: 20vw;
+  left: 0px;
+  padding-left: 2.5%;
+  padding-top: 2.1%;
+  border-right:solid #ECE8E5 4px;
+}
+
+.up-user-info-right {
+  height: 39.5vh;
+  width: 66vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.up-name-section {
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+}
+
+.up-other-section {
+  border-top:solid #ECE8E5 4px;
+  height: 30%;
+  display: flex;
+  flex-direction: row;
+}
+
+.follower-count-box {
+  border-right:solid #ECE8E5 4px;
+  width: 33.3%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+}
+
+.location-box {
+  width: 33.3%
+}
+
+.location-text {
+  font-family: "Geneva";
+  font-weight: bold;
+  font-size: 2.5em;
+  padding-top: 7%;
+}
+
+.instagram-box {
+  border-left: solid #ECE8E5 4px;
+  padding-top: 2.6%;
+  width: 33.4%
+}
+
+.follower-count-number {
+  font-family: "Geneva";
+  font-weight: bold;
+  font-size: 2.5em;
+  padding-left: 19%;
+}
+
+.title {
+  font-family: "Geneva";
+  font-weight: bold;
+  font-size: 13em;
+  color: white;
+  bottom: 0px;
+  padding-bottom: 46vh;
+  position: absolute;
+  z-index: 1;
+  letter-spacing: 12px;
+}
+
+.portfolio-text {
+  font-family: "Geneva";
+  font-weight: bold;
+  font-size: 2.2em;
+  letter-spacing: 2px;
+  padding-left: .3%;
+}
+
+.user-name {
+  font-family: "Geneva";
+  font-weight: bold;
+  font-size: 12em;
+  padding-top: 1%;
+}
+
+.top-portfolio-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 

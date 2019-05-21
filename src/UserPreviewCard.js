@@ -10,7 +10,7 @@ class UserPreviewCard extends React.Component {
         <Card className="user-preview-card">
 
         <div className="pc-photo-container">
-          <div className="left-half" background={this.props.user.images[0]}>
+          <div className="left-half" background="">
           </div>
           <div className="right-half">
           </div>
