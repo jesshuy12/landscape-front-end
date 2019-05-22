@@ -99,7 +99,7 @@ html, body {
   padding-left: 9%;
   padding-top: 5%;
   width: 45%;
-  height: 150%;
+  height: 100%;
 }
 
 .location-form {
@@ -371,6 +371,10 @@ a {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+#btnOpenFileDialog {
+  display:none;
 }
 
 

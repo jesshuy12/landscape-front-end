@@ -18,7 +18,8 @@ class Signup extends React.Component {
     instagram_handle: "",
     follower_count: "",
     email: "",
-    skill: []
+    skill: [],
+    avatar: null
   }
 
   handleChange = (e) => {
@@ -41,8 +42,22 @@ class Signup extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    const user = this.state
-    this.props.createUser(user)
+
+    let formData = new FormData()
+    formData.append('name', this.state.name)
+    formData.append('username', this.state.username)
+    formData.append('password', this.state.password)
+    formData.append('location', this.state.location)
+    formData.append('instagram_handle', this.state.instagram_handle)
+    formData.append('follower_count', this.state.follower_count)
+    formData.append('email', this.state.email)
+    formData.append('avatar', this.state.avatar)
+
+    for (const skill of this.state.skill) {
+      formData.append('skill[]', skill)
+    }
+
+    this.props.createUser(formData)
     this.setState ({
       name: "",
       username: "",
@@ -51,7 +66,18 @@ class Signup extends React.Component {
       instagram_handle: "",
       follower_count: "",
       email: "",
-      skill: []
+      skill: [],
+      avatar: null
+    })
+  }
+
+  openfileDialog = (e) => {
+    ("#fileLoader").click();
+  }
+
+  fileHandle = (e) => {
+    this.setState ({
+      avatar: e.target.files[0]
     })
   }
 
@@ -71,6 +97,11 @@ class Signup extends React.Component {
           <Form.Select className="location-form" onChange={this.locationChange} fluid label='Location' name="location" options={options} placeholder='Location' value={this.state.location}/>
         </Form.Group>
         <br/>
+        <Form.Group inline className="avatar-upload">
+          <label>Upload Profile Image</label>
+          <input type="file" id="fileLoader" name="avatar" title="Load File" onChange={this.fileHandle}/>
+          <input type="button" id="btnOpenFileDialog" value = "Click Me !!!" onClick="openfileDialog();" />
+        </Form.Group>
         <Form.Group inline className="skillsets">
           <label>Skillset</label>
           <Form.Field

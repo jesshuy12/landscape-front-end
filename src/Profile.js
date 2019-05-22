@@ -22,7 +22,7 @@ class Profile extends React.Component {
          <div className="up-left-main-container">
            <div className="up-user-info-container">
              <div className="up-user-info-left">
-              <Image src='/jessyface.png' size='medium' circular />
+              <Image src={this.props.currentUser.avatar} size='medium' circular />
              </div>
              <div className="up-user-info-right">
               <div className="up-name-section">
@@ -36,9 +36,9 @@ class Profile extends React.Component {
                   <h2 className="location-text"><Icon name='map pin' />{this.props.currentUser.location}</h2>
                 </div>
                 <div className="instagram-box">
-                  <Button color='instagram' size='big'>
+                  <a href={`//instagram.com/${this.props.currentUser.instagram_handle}`} target="_blank" ><Button color='instagram' size='big'>
                     <Icon name='instagram' /> Instagram
-                  </Button>
+                  </Button></a>
                 </div>
               </div>
              </div>
