@@ -82,6 +82,7 @@ class Signup extends React.Component {
   }
 
   render() {
+    console.log(this.state.avatar)
     const { value } = this.state
     return (
       <div className="sign-up-page">

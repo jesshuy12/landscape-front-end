@@ -109,7 +109,7 @@ class App extends React.Component {
       <Switch>
         <Route path='/technology' render={() => <Technology /> } />
         <Route path='/community' render={() => <Community community={this.state.community} signOut={this.signOut}/> } />
-        <Route exact path='/users/:id' render={() => <Profile currentUser={this.state.currentUser} signOut={this.signOut} /> } />
+        <Route exact path='/users/:id' render={(routeProps) => { return <Profile {...routeProps} currentUser={this.state.currentUser} signOut={this.signOut} /> }} />
         <Route path='/about' render={() => <About /> } />
         <Route path='/signup' render={() => <Signup createUser={this.createUser}/> } />
         <Route exact path='/' render={(routeProps) => { return <Home {...routeProps} setCurrentUser={this.setCurrentUser} login={this.login}/> }}/>

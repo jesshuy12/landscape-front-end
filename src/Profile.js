@@ -8,35 +8,55 @@ import UserPreviewCard from './UserPreviewCard'
 
 class Profile extends React.Component {
 
+  state = {
+    selectedUser: {}
+  }
+
   renderSkills = () => {
     return this.props.currentUser.skills.map(skill => {
       return skill.name
     })
   }
 
+  fetchSelectedUser = () => {
+    fetch('http://localhost:3000/users')
+    .then(res => res.json())
+    .then(response => {
+      const user = response.find(user => {
+        return user.id === parseInt(this.props.match.params.id)
+      })
+      this.setState({
+        selectedUser: user
+      })
+    })
+  }
+
+  componentDidMount() {
+    this.fetchSelectedUser()
+  }
+
   render() {
-    console.log(this.props.currentUser)
     return (
        this.props.currentUser ?
        <div className="user-page">
          <div className="up-left-main-container">
            <div className="up-user-info-container">
              <div className="up-user-info-left">
-              <Image src={this.props.currentUser.avatar} size='medium' circular />
+              <Image src={this.state.selectedUser.avatar} size='medium' circular />
              </div>
              <div className="up-user-info-right">
               <div className="up-name-section">
-                <h1 className="user-name">{this.props.currentUser.name}</h1>
+                <h1 className="user-name">{this.state.selectedUser.name}</h1>
               </div>
               <div className="up-other-section">
                 <div className="follower-count-box">
-                <h2 className="follower-count-number">Followers - {this.props.currentUser.follower_count}</h2>
+                <h2 className="follower-count-number">Followers - {this.state.selectedUser.follower_count}</h2>
                 </div>
                 <div className="location-box">
-                  <h2 className="location-text"><Icon name='map pin' />{this.props.currentUser.location}</h2>
+                  <h2 className="location-text"><Icon name='map pin' />{this.state.selectedUser.location}</h2>
                 </div>
                 <div className="instagram-box">
-                  <a href={`//instagram.com/${this.props.currentUser.instagram_handle}`} target="_blank" ><Button color='instagram' size='big'>
+                  <a href={`//instagram.com/${this.state.selectedUser.instagram_handle}`} target="_blank" ><Button color='instagram' size='big'>
                     <Icon name='instagram' /> Instagram
                   </Button></a>
                 </div>
@@ -46,7 +66,8 @@ class Profile extends React.Component {
            <div className="up-user-portfolio-container">
             <div className="top-portfolio-container">
             <h2 className="portfolio-text">PORTFOLIO</h2>
-            <UploadImage currentUser={this.props.currentUser}/>
+            {this.state.selectedUser.id === this.props.currentUser.id ?
+            <UploadImage currentUser={this.props.currentUser}/> : null }
             </div>
             <Portfolio />
            </div>
