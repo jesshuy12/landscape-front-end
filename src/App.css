@@ -37,14 +37,13 @@ html, body {
 }
 
 .nav-general {
-  position: absolute;
   background: #eee;
   opacity: 0.95;
-  padding: 15px;
+  padding: 7%;
   margin-top: 1.7vh;
   margin-left: .6vw;
   width: 20vh;
-  height: 96.5vh;
+  height: 96vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -255,7 +254,8 @@ a {
 .up-right-main-container {
   width: 25vw;
   height: 100vh;
-  flex: initial;
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
   position: sticky;
   top: 0;

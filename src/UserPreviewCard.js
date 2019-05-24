@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import { Button, Card, Image } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 
 class UserPreviewCard extends React.Component {
 
@@ -20,7 +21,7 @@ class UserPreviewCard extends React.Component {
           <Image className="preview-card-profile-pic" floated='left' size='mini' src='https://react.semantic-ui.com/images/avatar/large/steve.jpg' />
           <Card.Header>{this.props.user.name}</Card.Header>
           <Card.Meta>Photographer</Card.Meta>
-          <Button circular color='facebook' icon='user' />
+          <Link to={`/users/${this.props.user.id}`}><Button circular color='facebook' icon='user' /></Link>
           <Button circular color='twitter' icon='instagram' />
         </div>
 

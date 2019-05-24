@@ -7,16 +7,25 @@ class UploadImage extends React.Component {
     image: ""
   }
 
+  getMeta(url, callback) {
+    var img = new Image();
+    img.src = url;
+    img.onload = function() { callback(this.width, this.height); }
+  }
+
   postImageURL = () => {
     if (this.state.uploaded === true) {
-      const image = {imageURL: this.state.image, user_id: this.props.currentUser.id}
-      fetch(`http://localhost:3000/images`, {
-        method: 'POST',
-        body: JSON.stringify(image),
-        headers:{
-          'Content-Type': 'application/json'
-        }
+      this.getMeta(this.state.image, (width, height) => {
+        const image = {imageURL: this.state.image, user_id: this.props.currentUser.id, width, height}
+        fetch(`http://localhost:3000/images`, {
+          method: 'POST',
+          body: JSON.stringify(image),
+          headers:{
+            'Content-Type': 'application/json'
+          }
+        })
       })
+
     }
   }
 
