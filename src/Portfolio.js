@@ -4,6 +4,41 @@ import Gallery from 'react-photo-gallery';
 import Lightbox from "react-image-lightbox";
 
 const photos = [
+  {
+    src: "https://source.unsplash.com/EOnlL3L3IgQ/600x799",
+    width: 3,
+    height: 4
+  },
+  {
+    src: "https://source.unsplash.com/UuoovtKdlLA/600x799",
+    width: 3,
+    height: 4
+  },
+  {
+    src: "https://source.unsplash.com/_aE8ainPt7M/600x799",
+    width: 3,
+    height: 4
+  },
+  {
+    src: "https://source.unsplash.com/vpHCfunwDrQ/800x599",
+    width: 4,
+    height: 3
+  },
+  {
+    src: "https://source.unsplash.com/r1nxlNo-v4I/600x799",
+    width: 3,
+    height: 4
+  },
+  {
+    src: "https://source.unsplash.com/Uu2FsN_8r88/800x599",
+    width: 4,
+    height: 3
+  },
+  {
+    src: "https://source.unsplash.com/2A95bKGQmXY/600x799",
+    width: 3,
+    height: 4
+  },
  {
    src: "https://source.unsplash.com/2ShvY8Lf6l0/800x599",
    width: 800,

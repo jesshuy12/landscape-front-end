@@ -43,3 +43,31 @@
     <Nav signOut={this.props.signOut}/>
   </div>
   </div>
+
+
+
+
+  <div className="up-user-info-left">
+   <Image src={this.state.selectedUser.avatar} size='medium' circular />
+  </div>
+
+  <div className="up-user-info-right">
+   <div className="up-name-section">
+     <h1 className="user-name">{this.state.selectedUser.name}</h1>
+   </div>
+   <div className="up-other-section">
+     <div className="follower-count-box">
+     <h2 className="follower-count-number">Followers - {this.state.selectedUser.follower_count}</h2>
+     </div>
+     <div className="location-box">
+       <h2 className="location-text"><Icon name='location arrow'/>{this.state.selectedUser.location}</h2>
+     </div>
+     <div className="instagram-box">
+       <a href={`//instagram.com/${this.state.selectedUser.instagram_handle}`} target="_blank" ><Button color='instagram' size='big'>
+         <Icon name='instagram' /> Instagram
+       </Button></a>
+     </div>
+   </div>
+
+   <Link to={`/users/${this.props.user.id}`}><Button circular color='facebook' icon='user' /></Link>
+   <Button circular color='twitter' icon='instagram' />
