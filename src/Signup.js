@@ -88,21 +88,22 @@ class Signup extends React.Component {
       <div className="sign-up-page">
       <Form onSubmit={this.handleSubmit} className="sign-up-form">
         <Form.Group widths='equal' className="first-three-input">
-          <Form.Field onChange={this.handleChange} control={Input} label='Full name' name="name" placeholder='Full Name' value={this.state.name}/>
-          <Form.Field onChange={this.handleChange} control={Input} label='Username' name="username" placeholder="Username" value={this.state.username}/>
-          <Form.Field onChange={this.handleChange} control={Input} label='Password' name="password" placeholder='Password' value={this.state.password}/>
+          <Form.Field onChange={this.handleChange} control={Input} label='Full name' name="name" placeholder='Full Name' value={this.state.name} required/>
+          <Form.Field onChange={this.handleChange} control={Input} label='Username' name="username" placeholder="Username" value={this.state.username} required/>
+          <Form.Field onChange={this.handleChange} control={Input} label='Password' name="password" placeholder='Password' value={this.state.password} required/>
         </Form.Group>
         <Form.Group widths='equal' className="second-three-input">
-          <Form.Field onChange={this.handleChange} control={Input} label='Email' name="email" placeholder='example@example.com' value={this.state.email}/>
-          <Form.Field onChange={this.handleChange} control={Input} label='Instagram' name="instagram_handle" placeholder="@Instagram Handle" value={this.state.instagram_handle}/>
-          <Form.Select className="location-form" onChange={this.locationChange} fluid label='Location' name="location" options={options} placeholder='Location' value={this.state.location}/>
+          <Form.Field onChange={this.handleChange} control={Input} label='Email' name="email" placeholder='example@example.com' value={this.state.email} required/>
+          <Form.Field onChange={this.handleChange} control={Input} label='Instagram' name="instagram_handle" placeholder="@Instagram Handle" value={this.state.instagram_handle} required/>
+          <Form.Select className="location-form" onChange={this.locationChange} fluid label='Location' name="location" options={options} placeholder='Location' value={this.state.location} required/>
         </Form.Group>
         <br/>
         <Form.Group inline className="avatar-upload">
           <label>Upload Profile Image</label>
-          <input type="file" id="fileLoader" name="avatar" title="Load File" onChange={this.fileHandle}/>
-          <input type="button" id="btnOpenFileDialog" value = "Click Me !!!" onClick="openfileDialog();" />
+          <input type="file" id="fileLoader" name="avatar" title="Load File" onChange={this.fileHandle} required/>
+          <input type="button" id="btnOpenFileDialog" value = "Click Me !!!" onClick="openfileDialog();" required/>
         </Form.Group>
+        <br/>
         <Form.Group inline className="skillsets">
           <label>Skillset</label>
           <Form.Field
@@ -120,11 +121,11 @@ class Signup extends React.Component {
         </Form.Group>
         <br/>
         <Form.Group inline>
-          <Form.Field onChange={this.handleChange} control={Input} label='Instagram Followers' name="follower_count" placeholder='#Follower Count' value={this.state.follower_count}/>
+          <Form.Field onChange={this.handleChange} control={Input} label='Instagram Followers' name="follower_count" placeholder='#Follower Count' value={this.state.follower_count} required/>
         </Form.Group>
         <br/>
         <Form.Field control={TextArea} label='About' placeholder='Tell us more about you...' />
-        <Form.Field control={Checkbox} label='I agree to the Terms and Conditions made by Jessy' />
+        <Form.Field control={Checkbox} label='I agree to the Terms and Conditions made by Jessy' required/>
         <Form.Field control={Button}>Submit</Form.Field>
       </Form>
       </div>

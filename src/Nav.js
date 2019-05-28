@@ -11,8 +11,9 @@ class Nav extends React.Component {
               <ul className="starting-menu">
                 <Link to={`/users/${localStorage.getItem("user_id")}`}><Icon name='user' /> Profile</Link>
                 <Link to='/community'><Icon name='search' /> Search</Link>
-                <Link to='/'><Icon name='facebook messenger' /> Messages</Link>
+                <Link to='/explore'><Icon name='images' /> Explore</Link>
                 <Link to='/' onClick={() => this.props.signOut()}><Icon name='sign out' /> Sign Out</Link>
+                <Link to='/technology'><Icon name='cog' /> Technology</Link>
                 <Link to='/about'><Icon name='info' /> About</Link>
               </ul>
                 <p>Made with ❤️ by Jessy</p>

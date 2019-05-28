@@ -86,7 +86,7 @@ html, body {
 }
 
 .sign-up-page {
-  background-image: url('/signup.jpeg');
+  background-image: url('/signupbackground.jpg');
   background-size: 100% 100%;
   background-repeat: no-repeat;
   height: 100vh;
@@ -96,14 +96,14 @@ html, body {
 }
 
 .sign-up-form {
-  padding-left: 9%;
-  padding-top: 5%;
+  border-style: solid;
+  border-color: #BCC4CC;
+  border-width: 5px;
+  padding: 5%;
   width: 45%;
-  height: 100%;
-}
-
-.location-form {
-  width: 50%;
+  height: 75%;
+  margin-left: 27.5%;
+  margin-top: 5%;
 }
 
 .no-path {
@@ -124,14 +124,6 @@ a {
 
 .profile-pic {
   height: 250px;
-}
-
-.technology-page {
-  background-image: url('/technology.jpg');
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  height: 100vh;
-  width: 100vw;
 }
 
 .community-page {
@@ -373,11 +365,91 @@ a {
   white-space: pre;
 }
 
+.technology-page {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: row;
+}
 
+.tp-left-main {
+  width: 180vw;
+  height: 96vh;
+  display: flex;
+  flex-direction: column;
+  border-style: solid;
+  border-color: #BCC4CC;
+  margin: .9%;
+  padding: 1%;
+}
 
+.tp-right-main {
+  width: 25vw;
+  height: 100vh;
+  margin-right: .4%;
+  flex: initial;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+}
 
-/* .starting-menu p:hover {
-  background-color: #FFFAF0;
-  color: black;
-  opacity: 0.20;
-} */
+.explore-page {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.explore-left-main {
+  width: 180vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-style: solid;
+  border-color: #BCC4CC;
+  margin: .9%;
+  padding: 1%;
+}
+
+.explore-right-main {
+  width: 25vw;
+  height: 100vh;
+  margin-right: .4%;
+  flex: initial;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+}
+
+.about-upper-left-container {
+  height: 50%;
+  display: flex;
+  flex-direction: row;
+}
+
+.built-by {
+  border-style: solid;
+  border-color: red;
+  width: 20%;
+  margin-left: 19.5%;
+}
+
+.styled-by {
+  border-style: solid;
+  border-color: green;
+  width: 20%;
+  margin-left: 2%;
+}
+
+.jessy-info {
+  border-style: solid;
+  border-color: blue;
+  width: 20%;
+  margin-left: 2%;
+}
+
+.about-lower-left-container {
+  border-style: solid;
+  border-color: #BCC4CC;
+  height: 50%;
+  margin-top: 2%;
+}

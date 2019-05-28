@@ -8,6 +8,7 @@ import NoPath from './NoPath'
 import About from './About'
 import Community from './Community'
 import Technology from './Technology'
+import Explore from './Explore'
 
 class App extends React.Component {
 
@@ -107,7 +108,8 @@ class App extends React.Component {
     return (
       <div className="App">
       <Switch>
-        <Route path='/technology' render={() => <Technology /> } />
+        <Route path='/explore' render={() => <Explore signOut={this.signOut}/> } />
+        <Route path='/technology' render={() => <Technology signOut={this.signOut}/> } />
         <Route path='/community' render={() => <Community community={this.state.community} signOut={this.signOut}/> } />
         <Route exact path='/users/:id' render={(routeProps) => { return <Profile {...routeProps} currentUser={this.state.currentUser} signOut={this.signOut} /> }} />
         <Route path='/about' render={() => <About /> } />
