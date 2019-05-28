@@ -45,10 +45,10 @@ class Home extends React.Component {
         <div className="nav">
           <ul className="starting-menu">
             <a onClick={this.show('blurring')}>Sign In</a>
-            <a><Link to='/signup'>Sign Up</Link></a>
-            <a><Link to='/community'>Community</Link></a>
-            <a><Link to='/technology'>Technology</Link></a>
-            <a><Link to='/about'>About</Link></a>
+            <Link to='/signup'>Sign Up</Link>
+            <Link to='/community'>Community</Link>
+            <Link to='/technology'>Technology</Link>
+            <Link to='/about'>About</Link>
           </ul>
           <p>Made with ❤️ by Jessy</p>
         </div>
@@ -60,7 +60,7 @@ class Home extends React.Component {
               <Modal.Description>
                 <Input onChange={this.usernameHandleChange} value={this.state.username} className="username-login-input" focus placeholder='Username..' />
                 <Header className="password-login-text"></Header>
-                <Input onChange={this.passwordHandleChange} value={this.state.password} className="password-login-input" focus placeholder='Password..' />
+                <Input onChange={this.passwordHandleChange} value={this.state.password} type="password" className="password-login-input" focus placeholder='Password..' />
                 <br/>
                 <br/>
                 <p className="modal-extra-text">Not registered? {<a><Link to='/signup'>Sign-Up</Link></a>} now!</p>

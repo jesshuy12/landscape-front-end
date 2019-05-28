@@ -10,14 +10,13 @@ class Profile extends React.Component {
 
   state = {
     selectedUser: {}
-    // currentUser: this.props.currentUser
   }
 
-  renderSkills = () => {
-    return this.props.currentUser.skills.map(skill => {
-      return <p>{skill.name}</p>
-    })
-  }
+  // renderSkills = () => {
+  //   return this.props.currentUser.skills.map(skill => {
+  //     return <p>{skill.name}</p>
+  //   })
+  // }
 
   fetchSelectedUser = () => {
     fetch('http://localhost:3000/users')
@@ -27,9 +26,10 @@ class Profile extends React.Component {
         // debugger
         return user.id === parseInt(this.props.match.params.id)
       })
+      console.log("hell", response)
       this.setState({
         selectedUser: user
-      }, () => console.log("STATE IS", this.state))
+      })
     })
   }
 
@@ -37,20 +37,22 @@ class Profile extends React.Component {
     this.fetchSelectedUser()
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps!==this.props.match.params.id) {
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.selectedUser && prevState.selectedUser.id !== parseInt(this.props.match.params.id)) {
       this.fetchSelectedUser()
-      // this.setState({
-      //
-      // })
     }
   }
 
+  addImageToState = (image) => {
+    this.setState({
+      selectedUser: {...this.state.selectedUser, images: [...this.state.selectedUser.images, image]}
+    })
+  }
 
   render() {
-    console.log(this.state.selectedUser)
     return (
-       this.props.currentUser ?
+      <React.Fragment>
+       { this.props.currentUser && this.state.selectedUser ?
        <div className="user-page">
 
          <div className="up-left-main-container">
@@ -68,9 +70,9 @@ class Profile extends React.Component {
             <div className="top-portfolio-container">
               <h2 className="portfolio-text">PORTFOLIO</h2>
               {this.state.selectedUser.id === this.props.currentUser.id ?
-              <UploadImage currentUser={this.props.currentUser}/> : null }
+              <UploadImage addImageToState={this.addImageToState} currentUser={this.props.currentUser}/> : null }
               </div>
-              <Portfolio />
+              <Portfolio images={this.state.selectedUser.images}/>
             </div>
           </div>
 
@@ -83,6 +85,8 @@ class Profile extends React.Component {
       <div>
       <p>Please Login</p>
       </div>
+      }
+      </React.Fragment>
     )
   }
 

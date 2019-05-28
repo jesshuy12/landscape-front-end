@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import UserPreviewCard from './UserPreviewCard'
 import Nav from './Nav'
+import v4 from 'uuid'
 import { Input } from 'semantic-ui-react'
 
 class Community extends React.Component {
@@ -18,7 +19,7 @@ class Community extends React.Component {
 
   renderEachUser = () => {
     return this.filterUsers().map(user => {
-      return <UserPreviewCard user={user}/>
+      return <UserPreviewCard key={ v4() } user={user}/>
     })
   }
 

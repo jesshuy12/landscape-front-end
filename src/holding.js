@@ -71,3 +71,122 @@
 
    <Link to={`/users/${this.props.user.id}`}><Button circular color='facebook' icon='user' /></Link>
    <Button circular color='twitter' icon='instagram' />
+
+
+
+   let newArray = photos.map(photo => {
+     return photo.src
+   })
+
+   state = {
+     photoIndex: 0,
+     isOpen: false,
+   }
+
+
+       const { photoIndex, isOpen } = this.state;
+
+
+   {isOpen && (
+       <Lightbox
+         mainSrc={newArray[photoIndex]}
+         nextSrc={newArray[(photoIndex + 1) % newArray.length]}
+         prevSrc={newArray[(photoIndex + newArray.length - 1) % newArray.length]}
+         onCloseRequest={() => this.setState({ isOpen: false })}
+         onMovePrevRequest={() =>
+           this.setState({
+             photoIndex: (photoIndex + newArray.length - 1) % newArray.length,
+           })
+         }
+         onMoveNextRequest={() =>
+           this.setState({
+             photoIndex: (photoIndex + 1) % newArray.length,
+           })
+         }
+       />
+     )
+   }
+
+
+   const photos = [
+     {
+       src: "https://source.unsplash.com/EOnlL3L3IgQ/600x799",
+       width: 3,
+       height: 4
+     },
+     {
+       src: "https://source.unsplash.com/UuoovtKdlLA/600x799",
+       width: 3,
+       height: 4
+     },
+     {
+       src: "https://source.unsplash.com/_aE8ainPt7M/600x799",
+       width: 3,
+       height: 4
+     },
+     {
+       src: "https://source.unsplash.com/vpHCfunwDrQ/800x599",
+       width: 4,
+       height: 3
+     },
+     {
+       src: "https://source.unsplash.com/r1nxlNo-v4I/600x799",
+       width: 3,
+       height: 4
+     },
+     {
+       src: "https://source.unsplash.com/Uu2FsN_8r88/800x599",
+       width: 4,
+       height: 3
+     },
+     {
+       src: "https://source.unsplash.com/2A95bKGQmXY/600x799",
+       width: 3,
+       height: 4
+     },
+    {
+      src: "https://source.unsplash.com/2ShvY8Lf6l0/800x599",
+      width: 800,
+      height: 600
+    },
+    {
+      src: "https://source.unsplash.com/Dm-qxdynoEc/800x799",
+      width: 4,
+      height: 3
+    },
+    {
+      src: "https://source.unsplash.com/qDkso9nvCg0/600x799",
+      width: 3,
+      height: 4
+    },
+    {
+      src: "https://source.unsplash.com/iecJiKe_RNg/600x799",
+      width: 3,
+      height: 4
+    },
+    {
+      src: "https://source.unsplash.com/epcsn8Ed8kY/600x799",
+      width: 3,
+      height: 4
+    },
+    {
+      src: "https://source.unsplash.com/NQSWvyVRIJk/800x599",
+      width: 4,
+      height: 3
+    },
+    {
+      src: "https://source.unsplash.com/zh7GEuORbUw/600x799",
+      width: 3,
+      height: 4
+    },
+    {
+      src: "https://source.unsplash.com/PpOHJezOalU/800x599",
+      width: 4,
+      height: 3
+    },
+    {
+      src: "https://source.unsplash.com/I1ASdgphUH4/800x599",
+      width: 4,
+      height: 3
+    }
+   ]

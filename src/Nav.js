@@ -9,7 +9,9 @@ class Nav extends React.Component {
     return (
            <div className="nav-general">
               <ul className="starting-menu">
-                <Link to={`/users/${localStorage.getItem("user_id")}`}><Icon name='user' /> Profile</Link>
+                { localStorage.getItem("user_id") ?
+                <Link to={`/users/${localStorage.getItem("user_id")}`}><Icon name='user' /> Profile</Link> : <Link to={`/`}><Icon name='user' /> Profile</Link>
+                }
                 <Link to='/community'><Icon name='search' /> Search</Link>
                 <Link to='/explore'><Icon name='images' /> Explore</Link>
                 <Link to='/' onClick={() => this.props.signOut()}><Icon name='sign out' /> Sign Out</Link>

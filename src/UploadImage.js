@@ -16,13 +16,17 @@ class UploadImage extends React.Component {
   postImageURL = () => {
     if (this.state.uploaded === true) {
       this.getMeta(this.state.image, (width, height) => {
-        const image = {imageURL: this.state.image, user_id: this.props.currentUser.id, width, height}
+        const image = {src: this.state.image, user_id: this.props.currentUser.id, width, height}
         fetch(`http://localhost:3000/images`, {
           method: 'POST',
           body: JSON.stringify(image),
           headers:{
             'Content-Type': 'application/json'
           }
+        })
+        .then(res => res.json())
+        .then(() => {
+          this.props.addImageToState(image)
         })
       })
 

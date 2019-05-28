@@ -7,13 +7,13 @@ class UserPreviewCard extends React.Component {
 
   getImage1 = () => {
     return this.props.user.images.slice(0,1).map(photo => {
-      return photo.imageURL
+      return photo.src
     })
   }
 
   getImage2 = () => {
     return this.props.user.images.slice(1,2).map(photo => {
-      return photo.imageURL
+      return photo.src
     })
   }
 

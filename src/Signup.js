@@ -90,7 +90,7 @@ class Signup extends React.Component {
         <Form.Group widths='equal' className="first-three-input">
           <Form.Field onChange={this.handleChange} control={Input} label='Full name' name="name" placeholder='Full Name' value={this.state.name} required/>
           <Form.Field onChange={this.handleChange} control={Input} label='Username' name="username" placeholder="Username" value={this.state.username} required/>
-          <Form.Field onChange={this.handleChange} control={Input} label='Password' name="password" placeholder='Password' value={this.state.password} required/>
+          <Form.Field onChange={this.handleChange} control={Input} label='Password' name="password" placeholder='Password' type="password" value={this.state.password} required/>
         </Form.Group>
         <Form.Group widths='equal' className="second-three-input">
           <Form.Field onChange={this.handleChange} control={Input} label='Email' name="email" placeholder='example@example.com' value={this.state.email} required/>
