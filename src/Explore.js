@@ -1,12 +1,21 @@
 import React from 'react';
 import Nav from './Nav'
 import Gallery from 'react-photo-gallery';
-import Lightbox from "react-image-lightbox";
+import Lightbox from "react-images";
 
 class Technology extends React.Component {
 
+  constructor() {
+    super();
+    this.closeLightbox = this.closeLightbox.bind(this);
+    this.openLightbox = this.openLightbox.bind(this);
+    this.gotoNext = this.gotoNext.bind(this);
+    this.gotoPrevious = this.gotoPrevious.bind(this);
+  }
+
   state = {
-    images: []
+    images: [],
+    currentImage: 0
   }
 
   shuffle = (a) => {
@@ -32,13 +41,43 @@ class Technology extends React.Component {
     this.getAllImages()
   }
 
+  openLightbox(event, obj) {
+    this.setState({
+      currentImage: obj.index,
+      lightboxIsOpen: true,
+    });
+  }
+  closeLightbox() {
+    this.setState({
+      currentImage: 0,
+      lightboxIsOpen: false,
+    });
+  }
+  gotoPrevious() {
+    this.setState({
+      currentImage: this.state.currentImage - 1,
+    });
+  }
+  gotoNext() {
+    this.setState({
+      currentImage: this.state.currentImage + 1,
+    });
+  }
+
   render() {
     console.log(this.state.images)
     return(
       <div className="explore-page">
         <div className="explore-left-main">
           <h2 className="portfolio-text">EXPLORE</h2>
-          <Gallery photos={this.state.images} />
+          <Gallery photos={this.state.images} onClick={this.openLightbox}/>
+          <Lightbox images={this.state.images}
+              onClose={this.closeLightbox}
+              onClickPrev={this.gotoPrevious}
+              onClickNext={this.gotoNext}
+              currentImage={this.state.currentImage}
+              isOpen={this.state.lightboxIsOpen}
+            />
         </div>
         <div className="explore-right-main">
           <Nav signOut={this.props.signOut}/>
