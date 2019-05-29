@@ -15,7 +15,10 @@ class Technology extends React.Component {
             <br/>
             <div className="about-text">
               <h1>FRONT-END</h1>
-              <h1>ReactJS</h1>
+              <br/>
+              <h2>ReactJS</h2>
+              <h2>+</h2>
+              <h2>JavaScript</h2>
             </div>
           </div>
           <div className="back-end-stuff">
@@ -25,7 +28,8 @@ class Technology extends React.Component {
             <br/>
             <div className="about-text">
               <h1>BACK-END</h1>
-              <h1>RUBY ON RAILS</h1>
+              <br/>
+              <h2>Ruby on Rails</h2>
             </div>
           </div>
           <div className="design-stuff">
@@ -36,16 +40,24 @@ class Technology extends React.Component {
             <br/>
             <div className="about-text">
               <h1>STYLING</h1>
-              <h1>CUSTOM CSS</h1>
+              <br/>
+              <h2>Custom CSS</h2>
+              <h2>+</h2>
+              <h2>Semantic UI</h2>
             </div>
           </div>
           <div className="extra-stuff">
-            <Image className="about-pic-1" src="./jessysface.png" size='small' circular />
+            <Image className="about-npm" src="./npm.jpg" size='small' circular />
+            <br/>
+            <br/>
             <br/>
             <br/>
             <div className="about-text">
-              <h1>MY FACE AGAIN</h1>
-              <h1>YES</h1>
+              <h1>NPM</h1>
+              <br/>
+              <h2>React Gallery</h2>
+              <h2>+</h2>
+              <h2>React Lightbox</h2>
             </div>
           </div>
         </div>

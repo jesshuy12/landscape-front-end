@@ -167,20 +167,13 @@ a {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  /* padding-left: 1.5vh; */
-  /* padding-right: 1.5vh; */
-  /* padding-bottom: 3.5vh; */
   justify-content: flex-start;
-  /* margin-left: 2.3%;
-  margin-top: .5%; */
 }
 
 .user-preview-card {
   width: 20.5vw !important;
   height: 33vh;
-  /* padding-right: 5vw; */
-  /* padding-bottom: 3vh; */
-  margin: 1vh .3vw 1vh 2vw !important;
+  margin: .2vh .4vw 1vh 1vw !important;
 }
 
 .left-half {
@@ -292,7 +285,7 @@ a {
 }
 
 .up-user-info-container {
-  height: 40vh;
+  height: 46vh;
   width: 15vw;
   border-style: solid;
   border-color: #BCC4CC;
@@ -351,6 +344,20 @@ a {
   color: #989898;
 }
 
+.bio-text {
+  font-family: "Geneva";
+  font-size: 1.1em;
+  color: #989898;
+  padding-top: 3%;
+}
+
+.email-text {
+  font-family: "Geneva";
+  font-size: 1.1em;
+  color: #989898;
+  padding-top: 5%
+}
+
 .top-portfolio-container {
   display: flex;
   flex-direction: row;
@@ -358,7 +365,16 @@ a {
 }
 
 .insta_button {
-  padding-top: 18%;
+  padding-top: 35%;
+}
+
+.contact {
+  width: 90%;
+  border-bottom:solid #BCC4CC 3px;
+  border-top:solid #BCC4CC 3px;
+  position: absolute;
+  top: 287px;
+  height: 12%;
 }
 
 #btnOpenFileDialog {
@@ -531,4 +547,9 @@ a {
 
 .about-buttons {
   padding-top: 23%;
+}
+
+.about-npm {
+  margin-left: 27%;
+  margin-top: 23%;
 }

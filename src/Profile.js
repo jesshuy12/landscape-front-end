@@ -61,9 +61,13 @@ class Profile extends React.Component {
             <Image src={this.state.selectedUser.avatar} size='small' circular />
             <p className="user-name">{this.state.selectedUser.name}</p>
             <p className="location-text"><Icon name='location arrow' /> {this.state.selectedUser.location}</p>
+              <div className="contact">
+                <p className="email-text">{this.state.selectedUser.email}</p>
+              </div>
             <a className="insta_button" href={`//instagram.com/${this.state.selectedUser.instagram_handle}`} target="_blank" ><Button color='instagram' size='small'>
               <Icon name='instagram' /> Instagram
             </Button></a>
+              <p className="bio-text">Instagram Followers: {this.state.selectedUser.follower_count}</p>
            </div>
 
            <div className="up-user-portfolio-container">

@@ -65,7 +65,6 @@ class Technology extends React.Component {
   }
 
   render() {
-    console.log(this.state.images)
     return(
       <div className="explore-page">
         <div className="explore-left-main">
