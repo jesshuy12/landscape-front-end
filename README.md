@@ -18,9 +18,19 @@ Backend - Ruby
 Frontend - ReactJS
 Backend - Ruby on Rails API
 
+## NPMs
+
+react-photo-gallery
+react-images
+react-router
+
+## Cloud Storage
+
+Used Cloudinary
+
 ## Styling
 
-Framework - Semantic React UI
+Framework - Semantic UI React
 Styling is done with a majority using custom CSS. Semantic React UI was used to style buttons and forms.
 
 ## Backend Repo Link
